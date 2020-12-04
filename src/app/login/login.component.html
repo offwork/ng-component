@@ -1,0 +1,9 @@
+<div class="login">
+  <ngc-login-header [title]="loginTexts.title"></ngc-login-header>
+  <!-- <ngc-login-content></ngc-login-content> -->
+  <ng-container 
+    *ngTemplateOutlet="logingContentTemplate; context: templateContext">
+  </ng-container>
+  <ngc-login-footer [footerText]="loginTexts.footerText"></ngc-login-footer>
+  <ng-template #emptyTemplate></ng-template>
+</div>
