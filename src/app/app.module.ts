@@ -1,21 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginLayoutModule } from './components/login-layout/login-layout.module';
+import { AppRoutingModule } from './app.routing.module';
+import { AppLayoutComponent } from './components/app-layout.component';
+import { SimpleLayoutComponent } from './components/simple-layout.component';
+import { NotFoundComponent } from './components/not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
-    SignUpComponent
+    AppLayoutComponent,
+    SimpleLayoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    LoginModule
+    LoginLayoutModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

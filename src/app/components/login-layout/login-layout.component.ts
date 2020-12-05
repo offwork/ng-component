@@ -3,10 +3,10 @@ import { LoginTplDirective } from './login-tpl.directive';
 
 @Component({
   selector: 'ngc-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login-layout.component.html',
+  styleUrls: ['./login-layout.component.scss']
 })
-export class LoginComponent {
+export class LoginLayoutComponent {
   @Input() loginTexts: any;
 
   @ViewChild("emptyTemplate") emptyTemplate: TemplateRef<any>;

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'ngc-sign-in',
   template: `
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="send(loginForm)">
+    <form class="login-form" [formGroup]="signInForm" (ngSubmit)="send(signInForm)">
       <div class="form-fields">
         <input type="email" formControlName="email" />
       </div>
@@ -39,14 +39,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
       .form-button-groups > button {
         padding: 8px;
       }
-    `
+    .login-header {
+      background-color: #eee;
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+
+    .login-header > h2 {
+      margin-top: 0px;
+      padding: 20px 24px 0 24px;
+    }
+
+    .login-footer {
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+  `
   ]
 })
 export class SignInComponent {
-  loginForm: FormGroup;
+  signInForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
+    this.signInForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });  
@@ -59,6 +74,6 @@ export class SignInComponent {
   }
 
   reset() {
-    this.loginForm.reset();
+    this.signInForm.reset();
   }
 }
