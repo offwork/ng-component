@@ -5,9 +5,10 @@ import { Component } from '@angular/core';
   template: `
     <div>
       <h2>dashboard works!</h2>
+      <a routerLink="/sign-in"> Oturum Açmak için tıklayın </a>
     </div>
   `,
   styles: [
   ]
 })
-export class DashboardComponent {}
+export class DashboardComponent { }
