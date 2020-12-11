@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <div>
       <h2>dashboard works!</h2>
+      <a routerLink="/sign-in">Oturum Aç</a>
     </div>
   `,
   styles: [
