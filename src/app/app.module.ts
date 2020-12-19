@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppLayoutComponent } from './components/app-layout.component';
 import { SimpleLayoutComponent } from './components/simple-layout.component';
 import { NotFoundComponent } from './components/not-found.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { NotFoundComponent } from './components/not-found.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     LoginLayoutModule,
     AppRoutingModule
   ],

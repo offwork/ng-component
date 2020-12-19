@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
         <div class="app-toolbar">
           <span>App Logo</span>
           <nav class="app-navs">
-            <a routerLink="/sign-in">Oturumu Kapat</a>
+            <a routerLink="/sign-in">Oturumu Aç</a>
           </nav>
         </div> 
       </header>

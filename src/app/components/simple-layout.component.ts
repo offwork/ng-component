@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'ngc-simple-layout',
@@ -8,11 +11,21 @@ import { Component } from '@angular/core';
         <ngc-login-tpl>
           <ng-template>
           <router-outlet></router-outlet>
-          <div class="redirect-buttons">
-            <a routerLink="/sign-in">Oturum Aç</a>
-            <a routerLink="sign-up">Hesap Olustur</a>
-            <a routerLink="recover">Parolami unuttum!</a>
-          </div>          
+          <div class="redirect-buttons" [ngSwitch]="currentSegment$.getValue()">
+            <ng-container *ngSwitchCase="'/sign-in'">
+              <a routerLink="sign-up">Hesap Olustur</a>
+              <a routerLink="recover">Parolami unuttum!</a>
+            </ng-container>
+            <ng-container *ngSwitchCase="'/sign-up'">
+              <a routerLink="/sign-in">Oturum Aç</a>
+              <a routerLink="recover">Parolami unuttum!</a>
+            </ng-container>
+            <ng-container *ngSwitchCase="'/recover'">
+              <a routerLink="/sign-in">Oturum Aç</a>
+              <a routerLink="sign-up">Hesap Olustur</a>
+            </ng-container>
+          </div>
+          <div>{{segment}}</div>
           </ng-template>
         </ngc-login-tpl>
       </ngc-login>
@@ -40,11 +53,23 @@ import { Component } from '@angular/core';
     `
   ]
 })
-export class SimpleLayoutComponent {
-
-  currentSegment: string;
+export class SimpleLayoutComponent implements OnInit {
+  currentSegment$ = new BehaviorSubject<string>('/sign-in');
 
   loginTexts = {
     title: 'Login', footerText: '© Copyright 2020 vbt-account.com • All Rights Reserved VBT™'
+  }
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      )
+      .subscribe((event: NavigationEnd) => {
+        console.log('URL: ', event);
+        this.currentSegment$.next(event.url);
+      });
   }
 }
