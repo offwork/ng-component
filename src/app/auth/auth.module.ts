@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RecoveryComponent } from './recovery/recovery.component';
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
     SignUpComponent,
     RecoveryComponent
   ],
+  // providers: [ AuthService ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

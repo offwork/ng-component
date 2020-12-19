@@ -10,22 +10,21 @@ import { filter } from 'rxjs/operators';
       <ngc-login [loginTexts]="loginTexts">
         <ngc-login-tpl>
           <ng-template>
-          <router-outlet></router-outlet>
-          <div class="redirect-buttons" [ngSwitch]="currentSegment$.getValue()">
-            <ng-container *ngSwitchCase="'/sign-in'">
-              <a routerLink="sign-up">Hesap Olustur</a>
-              <a routerLink="recover">Parolami unuttum!</a>
-            </ng-container>
-            <ng-container *ngSwitchCase="'/sign-up'">
-              <a routerLink="/sign-in">Oturum Aç</a>
-              <a routerLink="recover">Parolami unuttum!</a>
-            </ng-container>
-            <ng-container *ngSwitchCase="'/recover'">
-              <a routerLink="/sign-in">Oturum Aç</a>
-              <a routerLink="sign-up">Hesap Olustur</a>
-            </ng-container>
-          </div>
-          <div>{{segment}}</div>
+            <router-outlet></router-outlet>
+            <div class="redirect-buttons" [ngSwitch]="currentSegment$.getValue()">
+              <ng-container *ngSwitchCase="'/sign-in'">
+                <a routerLink="sign-up">Hesap Olustur</a>
+                <a routerLink="recover">Parolami unuttum!</a>
+              </ng-container>
+              <ng-container *ngSwitchCase="'/sign-up'">
+                <a routerLink="/sign-in">Oturum Aç</a>
+                <a routerLink="recover">Parolami unuttum!</a>
+              </ng-container>
+              <ng-container *ngSwitchCase="'/recover'">
+                <a routerLink="/sign-in">Oturum Aç</a>
+                <a routerLink="sign-up">Hesap Olustur</a>
+              </ng-container>
+            </div>
           </ng-template>
         </ngc-login-tpl>
       </ngc-login>

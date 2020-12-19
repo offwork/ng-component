@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'ngc-app-layout',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
         <div class="app-toolbar">
           <span>App Logo</span>
           <nav class="app-navs">
-            <a routerLink="/sign-in">Oturumu Aç</a>
+            <a routerLink="/sign-in">
+              <div *ngIf="(loggedIn$ | async) as loggedIn; else loading">
+                <span>Outurumu Kapat</span>
+              </div> 
+            </a>
           </nav>
         </div> 
+        <ng-template #loading>
+          <span>Outurumu Aç</span>
+        </ng-template>
       </header>
       <main class="app-content">
         <router-outlet></router-outlet>
@@ -65,7 +73,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppLayoutComponent implements OnInit {
 
-  constructor() { }
+  loggedIn$ = this.authService.loggedIn();
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }

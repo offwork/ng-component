@@ -7,6 +7,7 @@ import { AppLayoutComponent } from './components/app-layout.component';
 import { SimpleLayoutComponent } from './components/simple-layout.component';
 import { NotFoundComponent } from './components/not-found.component';
 import { CommonModule } from '@angular/common';
+import { StorageService } from './core/services/stogare.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { CommonModule } from '@angular/common';
     LoginLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ /* StorageService */ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

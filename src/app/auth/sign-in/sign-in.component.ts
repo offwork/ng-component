@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Credential } from '../models/credantial';
+import { StorageService } from 'src/app/core/services/stogare.service';
+import { AjaxResponse } from 'rxjs/ajax';
 
 @Component({
   selector: 'ngc-sign-in',
   template: `
-    <form class="login-form" [formGroup]="signInForm" (ngSubmit)="send(signInForm)">
+    <form class="login-form" [formGroup]="signInForm" (ngSubmit)="send()">
       <div class="form-fields">
         <input type="email" formControlName="email" />
       </div>
@@ -59,16 +64,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignInComponent {
   signInForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private storage: StorageService) {
     this.signInForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });  
   }
 
-  send(form: FormGroup) {
-    if (form.valid) {
-      console.log(form.value);
+  send() {
+    if (this.signInForm.valid && this.signInForm.touched) {
+      this.authService
+      .login(this.signInForm.value as Credential)
+      .subscribe((response: AjaxResponse) => {
+        this.storage.setItem('access-token', response.response['token']);
+        this.router.navigate(['/dashboard']);
+      });
     }
   }
 
