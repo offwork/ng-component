@@ -12,7 +12,7 @@ import { title } from 'process';
     `
     .login-header {
       background-color: #eee;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #8a8a8a;
       text-align: center;
     }
 

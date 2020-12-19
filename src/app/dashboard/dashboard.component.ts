@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
       <h2>dashboard works!</h2>
     </div>
   `,
-  styles: [
-  ]
+  styles: [`
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+  `]
 })
 export class DashboardComponent {}

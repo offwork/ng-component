@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  font-family: monospace;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  width: 100%;
+
+  ngc-root {
+    background-color: whitesmoke;
+    display: flex;
+    height: 100%;
+  }
+}
+
+button {
+  background-color: #314eec;
+  border-radius: 6px;
+  border-style: unset;
+  color: white;
+  font-weight: bold;
+  min-width: 60px;
+  padding: 8px;
+}
+
+input {
+  border: #ccc 1px solid;
+  border-radius: 6px;
+  min-height: 32px;
+  padding: 0 8px;
+  outline: none;
+}

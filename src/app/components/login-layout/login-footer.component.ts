@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
   styles: [
     `
       .login-footer {
-        border-top: 1px solid #333;
+        border-top: 1px solid #ccc;
         text-align: center;
       }
     `

@@ -5,9 +5,9 @@ import { SimpleLayoutComponent } from './components/simple-layout.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { 
-    path: 'sign-in',
+    path: '',
     component: SimpleLayoutComponent,
     children: [
       {

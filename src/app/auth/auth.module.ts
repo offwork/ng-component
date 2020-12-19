@@ -9,7 +9,7 @@ import { RecoveryComponent } from './recovery/recovery.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'sign-in',
     component: SignInComponent
   },
   {
